@@ -1,0 +1,25 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "Node and Express App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Cham-88D/ToDoApp.git"
+  },
+  "author": "ChamD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cham-88D/ToDoApp/issues"
+  },
+  "homepage": "https://github.com/Cham-88D/ToDoApp#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

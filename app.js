@@ -1,25 +1,34 @@
 const express = require('express');
 const app = express();
-app.set('view engine','ejs')
+app.set('view engine', 'ejs');
 app.listen(3000)
 
 
-const location = './views/'
 //Home
 app.get('/',(req,res)=>{
-    res.sendFile(location+'index.html',{root:__dirname})
+
+   const item =[
+       {name:'computer',price:12}
+   ]
+
+   const n = 'Home'
+   const navLname = 'Add-Items'
+    res.render('index',{item:item,n,navLname});
 
 })
 
 
 //add-item page
 app.get('/add-item',(req,res)=>{
-    res.sendFile(location+'add-item.html',{root:__dirname})
+    const n = 'Add-Item'
+    const navLname = 'Home'
+    res.render('add-item',{n,navLname});
 
 })
 
 
 //404 error page 
 app.use((req,res)=>{
-    res.sendFile(location+'error.html',{root:__dirname})
+    const n = 'Error'
+    res.render('error',{n});
 })

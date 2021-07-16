@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <title>Home</title>
-</head>
+
+<%- include('./partials/head.ejs') %> 
+
 <body>
-    <!--Navbar--> 
-    <nav>
-        <div class="nav-wrapper container" >
-          <a href="#" class="brand-logo">ToDo</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/add-item">Add Items</a></li>
-          </ul>
+  <!--Navbar-->
+  <%- include('./partials/nav.ejs') %> 
+
+  <!--List-->
+  <div class="container">
+    <ul class="collection with-header">
+      <% if(item.length>0){ %>
+      <%
+      item.forEach(i =>{ %>
+      <li class="collection-item">
+        <div><%=i.name %> <%="$"+i.price %>
+          <a href="#!" class="secondary-content">
+            <i class="material-icons">delete</i>
+            <i class="material-icons">edit</i>
+          </a>
         </div>
-      </nav>
+      </li>
 
+      <% }); %>
+      <% }else{%>
+      <li>No Items</li>
+      <%}%>
 
-
-    <!--List--> 
-    <div class="container">
-      <ul class="collection with-header">
-        <li class="collection-header"><h4>First Names</h4></li>
-        <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-        <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-        <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-        <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
       </ul>
-       
     </div>
 
 

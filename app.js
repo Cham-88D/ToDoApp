@@ -1,9 +1,16 @@
 const express = require('express');
+const mongoose = require('mongoose')
 const app = express();
+
+//template engine
 app.set('view engine', 'ejs');
+//port 3000
 app.listen(3000)
-
-
+//databse connection
+const mongodb =  'mongodb://127.0.0.1:27017/?compressors=snappy&gssapiServiceName=mongodb'
+mongoose.connect(mongodb,{ useNewUrlParser: true,useUnifiedTopology: true}).then(()=>{
+    console.log("Connected")
+}).catch(err=>console.log(err))
 //Home
 app.get('/',(req,res)=>{
 

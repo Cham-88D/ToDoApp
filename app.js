@@ -51,7 +51,7 @@ app.post('/items', (req, res) => {
 
 })
 
-
+// get by id
 app.get('/items/:id',(req,res)=>{
    const n = 'Item-Details'
    const navLname = 'Home'
@@ -60,6 +60,23 @@ app.get('/items/:id',(req,res)=>{
         res.render('item-details',{item:result,n,navLname})
     })
 })
+
+// delete
+
+app.delete('/items/:id', (req, res) => {
+    const id = req.params.id;
+    Item.findByIdAndDelete(id).then(result => {
+        res.json({ redirect: '/get-items' })
+    })
+})
+//update
+ app.put('/items/:id', (req, res) => {
+    const id = req.params.id;
+    Item.findByIdAndUpdate(id, req.body).then(result => {
+        res.json({ msg: 'Updated Successfully' })
+    })
+})
+
 
 
 

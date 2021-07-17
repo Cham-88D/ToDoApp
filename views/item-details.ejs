@@ -8,18 +8,35 @@
   <%- include('./partials/nav.ejs') %> 
 
   <div class="row">
-    <div class="col s12 m6">
-      <div class="card light-green darken-1">
-        <div class="card-content white-text">
-          <span class="card-title"><%= item.name %></span>
-          <p><%= item.price %></p>
+    <div class="col s6 offset-s3">
+      <div class="card white darken-3 center">
+        <div class="card-content black-text">
+          <span class="card-title purple-text"><%= item.name %></span>
+          <p><%="price: $"+item.price %></p>
+          <br>
+          <a id="deleteBtn" class="delete btn" data-id="<%=item._id%>" href="">Delete</a>
         </div>
         
       </div>
     </div>
   </div>
+  <script>
+    deleteBtn.onclick = function (e) {
+        e.preventDefault();
+        const id = deleteBtn.dataset.id
+        console.log(id)
+        const endpoint = `/items/${id}`;
+        fetch(endpoint, {
+            method: 'DELETE'
+        }).then(res => res.json()).
+            then(data => {
+                console.log('data', data)
+                window.location.href = data.redirect
+            }).
+            catch(err => console.log(err))
+    }
 
-
+</script>
 
 </body>
 </html>

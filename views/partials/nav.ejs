@@ -1,14 +1,14 @@
 
 <nav>
-  <div class="nav-wrapper">
-    <a href="/" class="brand-logo">ToDo</a>
+  <div class="nav-wrapper light-blue darken-4">
+    <a href="/" class="brand-logo">Do</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% const navN=navLname ; let navLink ='';  %>
       <% if(navN==='Add-Items'){%>
-             <% navLink='./add-item' %>
+             <% navLink='/add-item' %>
       <%}%>
       <% if(navN==='Home'){%>
-        <% navLink='./' %>
+        <% navLink='/' %>
       <%}%>
 
       <li><a href=<%= navLink %> ><%= navN %> </a></li>

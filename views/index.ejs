@@ -10,11 +10,11 @@
   <!--List-->
   <div class="container">
     <ul class="collection with-header">
-      <% if(item.length>0){ %>
+      <% if(items.length>0){ %>
       <%
-      item.forEach(i =>{ %>
+      items.forEach(i =>{ %>
       <li class="collection-item">
-        <div><%=i.name %> <%="$"+i.price %>
+        <div><a href='/items/<%=i.id%>'><%=i.name %> <%="$"+i.price %></a>
           <a href="#!" class="secondary-content">
             <i class="material-icons">delete</i>
             <i class="material-icons">edit</i>
